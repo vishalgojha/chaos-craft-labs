@@ -23,7 +23,6 @@ services:
       - "traefik.http.routers.chaos-craft-labs.tls=true"
       - "traefik.http.routers.chaos-craft-labs.tls.certresolver=letsencrypt"
       - "traefik.http.services.chaos-craft-labs.loadbalancer.server.port=3000"
-      - "traefik.http.routers.chaos-craft-labs.priority=1"
 
 networks:
   coolify:
