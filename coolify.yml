@@ -1,7 +1,7 @@
 # Coolify Configuration for Vite React App
-# Deploy this via Coolify at http://116.202.9.89
+# Deploy this via Coolify at http://116.202.9.89;
 
-version: '3.8'
+version: '3.8';
 
 services:
   chaos-craft-labs:
@@ -17,10 +17,13 @@ services:
     networks:
       - coolify
     labels:
+      - "traefik.enable=true"
       - "traefik.http.routers.chaos-craft-labs.rule=Host(`www.chaoscraftlabs.com`)"
+      - "traefik.http.routers.chaos-craft-labs.entrypoints=websecure"
       - "traefik.http.routers.chaos-craft-labs.tls=true"
       - "traefik.http.routers.chaos-craft-labs.tls.certresolver=letsencrypt"
       - "traefik.http.services.chaos-craft-labs.loadbalancer.server.port=3000"
+      - "traefik.http.routers.chaos-craft-labs.priority=1"
 
 networks:
   coolify:
